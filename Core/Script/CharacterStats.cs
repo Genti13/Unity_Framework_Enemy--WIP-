@@ -10,13 +10,14 @@ public class CharacterStats : MonoBehaviour {
     }
 
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.T))
+        /*if(Input.GetKeyDown(KeyCode.T))
         {
             TakeDamage(20);
-        }
+        }*/
     }
 
     public void TakeDamage(int damage){
+        Debug.Log("Damage Recibido " + damage + " Vida Restante: " + this.currentHp);
         this.currentHp -= damage;
         if(this.currentHp <= 0){
             Die();

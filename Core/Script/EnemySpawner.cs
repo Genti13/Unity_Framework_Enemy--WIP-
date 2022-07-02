@@ -4,10 +4,8 @@ public class EnemySpawner : MonoBehaviour
 {  
     [SerializeField]
     private GameObject enemy;
-
     [SerializeField]
     private bool spawnEnemyOnStart;
-
     [SerializeField]
     private Timer respawnCoolDown;
     private GameObject enemyInstance;
@@ -20,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
             spawnPoint = new Vector2(this.transform.position.x, this.transform.position.y + enemy.transform.localScale.y / 2);
             spawnEnemy();
         }
+
     }
 
     //Si no se detecta instancia del enemigo asignado y no hay CD spawnea un nuevo enemigo
