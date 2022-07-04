@@ -6,8 +6,10 @@ public class Bullet : MonoBehaviour
     private float speed;
     private Vector2 target;
     private GameObject player;
+    private int damage;
 
-    private void Start() {
+    private void Start()
+    {
         this.player = GameObject.FindGameObjectWithTag("Player");
         this.gameObject.AddComponent(typeof(CircleCollider2D));
         this.gameObject.AddComponent(typeof(Rigidbody2D));
@@ -20,28 +22,42 @@ public class Bullet : MonoBehaviour
         this.GetComponent<Rigidbody2D>().velocity = new Vector2(target.x, target.y);
     }
 
-    private void Update() {
+    private void Update()
+    {
         destroyBullet(20f);
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         //Si el bullet pasa por un enemigo lo ignora
-        if(other.CompareTag("Enemy") || other.CompareTag("Bullet"))
+        if (other.CompareTag("Enemy") || other.CompareTag("Bullet"))
             return;
 
         //Compara lo que se esta golpeando con el ID unico del collider del Player
-        if(other.GetInstanceID().Equals(this.player.GetComponent<BoxCollider2D>().GetInstanceID())){
-            player.GetComponent<PlayerStats>().TakeDamage(10);
+        if (other.GetInstanceID().Equals(this.player.GetComponent<BoxCollider2D>().GetInstanceID()))
+        {
+            player.GetComponent<PlayerStats>().TakeDamage(damage);
         }
+        /*
+        if(other.CompareTag("Player")){
+            player.GetComponent<PlayerStats>().TakeDamage(10);
+        }*/
 
         destroyBullet();
     }
 
-    private void destroyBullet(){
+    private void destroyBullet()
+    {
         Destroy(this.gameObject);
     }
-    private void destroyBullet(float time){
+    private void destroyBullet(float time)
+    {
         Destroy(this.gameObject, time);
+    }
+
+    public void setDamage(int damage)
+    {
+        this.damage = damage;
     }
 
 }

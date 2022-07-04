@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6560204619301080817}
   - component: {fileID: 2638025117388627662}
-  - component: {fileID: 5195603914537078713}
-  - component: {fileID: -6241338683381062862}
-  - component: {fileID: 2638025117388627663}
+  - component: {fileID: 9001926761411526224}
   - component: {fileID: -6058823417283316617}
+  - component: {fileID: 2125971021575763381}
   m_Layer: 0
   m_Name: Test Prefab
   m_TagString: Enemy
@@ -86,54 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5195603914537078713
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7431549318621821218}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!50 &-6241338683381062862
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7431549318621821218}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &2638025117388627663
+--- !u!114 &9001926761411526224
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,10 +99,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp:
     value: 100
-  speed:
+  moveSpeed:
     value: 5
   dmg:
     value: 10
+  dmg_contact:
+    value: 25
+  attackRate:
+    coolDown: 1
+  attackRange: 5.25
+  detectionRange: 10.5
 --- !u!114 &-6058823417283316617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +121,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88bee00f61757e40b8328398f2fd80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 3091300824297546105, guid: 7b8e5307030897d459695d665ac82cb0, type: 3}
-  fireRate:
-    coolDown: 1.03
+  bullet: {fileID: -5050697564580894225, guid: 7b8e5307030897d459695d665ac82cb0, type: 3}
+--- !u!114 &2125971021575763381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7431549318621821218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a8ba9610b543c4bb377dc9e717eff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

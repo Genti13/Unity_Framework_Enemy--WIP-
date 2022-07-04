@@ -6,7 +6,8 @@ public class Stat
     [SerializeField]
     private int value;
 
-    public int getValue(){
+    public int GetValue()
+    {
         return this.value;
-    } 
+    }
 }
