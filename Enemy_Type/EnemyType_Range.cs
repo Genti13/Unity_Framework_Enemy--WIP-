@@ -12,13 +12,15 @@ public class EnemyType_Range : Enemy_NoDummy
             Attack();
         }
     }
-
     public override void Attack()
     {
         base.Attack();
         Bullet bullet = Instantiate(this.bullet, this.transform.position, Quaternion.identity);
         bullet.setDamage(this.stats.dmg.GetValue());
+    }
 
+    public void setBullet(Bullet bullet){
+        this.bullet = bullet;
     }
 
 }

@@ -8,7 +8,11 @@ public class CharacterStats : MonoBehaviour
     public Stat dmg;
     private void Awake()
     {
-        this.currentHp = this.maxHp.GetValue();
+        //this.currentHp = this.maxHp.GetValue();
+    }
+
+    public void setCurrentHP(int hp){
+        this.currentHp = hp;
     }
 
     private void Update()

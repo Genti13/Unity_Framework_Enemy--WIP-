@@ -25,4 +25,8 @@ public class Timer
         }
         return false;
     }
+
+    private void setCoolDown(float coolDown){
+        this.coolDown = coolDown;
+    }
 }
